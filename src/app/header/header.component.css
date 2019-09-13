@@ -1,0 +1,11 @@
+mat-toolbar {
+    height: 55px;
+}
+mat-toolbar span {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+.spacer {
+    flex: 1 1 auto;
+}

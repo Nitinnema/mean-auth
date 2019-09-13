@@ -1,0 +1,38 @@
+    <mat-card>
+        <span>Complete your profile</span><br>
+        <form class="example-form" [formGroup]="profileForm" (submit)=onSave()>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter Full Name" formControlName="name">
+                <mat-error *ngIf="profileForm.get('name').invalid">Please enter full name.</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter phone" formControlName="phone">
+                <mat-error *ngIf="profileForm.get('phone').invalid">Please enter phone number.</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter Email" formControlName="email">
+                <mat-error *ngIf="profileForm.get('email').hasError('required')">Please enter email.</mat-error>
+                <mat-error *ngIf="profileForm.get('email').hasError('email')">Please provide valid email.</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <mat-label>Favourite car</mat-label>
+                <select matNativeControl formControlName="car">
+                    <option value="mercedes">Mercedes</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="lamborghini">Lamborghini</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <mat-error *ngIf="profileForm.get('car').invalid">Please select car.</mat-error>
+            </mat-form-field>
+            
+            <div class="example-button-row">
+                <button mat-raised-button (click)="openSnackBar()" [disabled]="profileForm.invalid" color="primary">Save</button>
+                <button mat-raised-button (click)="onReset()">Reset</button>
+            </div>
+            
+        </form>                
+    </mat-card>

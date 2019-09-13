@@ -1,0 +1,24 @@
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+}
+table {
+    width: 100%;
+  }
+.mat-form-field {
+  font-size: 14px;
+   width: 100%;
+}
+mat-spinner {
+  margin: 20px auto;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.example-container {
+  margin: 20px auto 80px;
+  height: 80vh;
+}
+mat-drawer {
+  width: 50%;
+}

@@ -1,0 +1,42 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+
+          <div class="table-container"> 
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Type 3 letters to fetch data">
+                </mat-form-field>
+        
+            <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="city">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>City Name</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.city}} </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-spinner strokeWidth="5" [diameter]="50" *ngIf="isLoading"></mat-spinner> 
+        </div>
+            
+    </mat-drawer>
+    <mat-drawer-content>
+
+            <div class="table-container">
+                <mat-form-field>
+                    <input matInput (keyup)="emailFunction($event.target.value)" placeholder="Filter" >
+                </mat-form-field>
+                <mat-table #table [dataSource]="dataSourceEmail" class="mat-elevation-z8" cdkDropList
+                [cdkDropListData]="dataSource"
+                (cdkDropListDropped)="dropTable($event)">
+                        <ng-container matColumnDef="email">
+                          <!-- <mat-header-cell *matHeaderCellDef mat-sort-header>City Name</mat-header-cell> -->
+                          <mat-cell *matCellDef="let row"> {{row}} </mat-cell>
+                        </ng-container>
+                
+                        <!-- <mat-header-row *matHeaderRowDef="displayedColumnsEmail"></mat-header-row> -->
+                        <mat-row *matRowDef="let row; columns: displayedColumnsEmail;" cdkDrag [cdkDragData]="row"></mat-row>
+                    </mat-table>
+            </div>
+            
+    </mat-drawer-content>
+</mat-drawer-container>

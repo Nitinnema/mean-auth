@@ -1,0 +1,53 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span>Hi, <b>{{ firstname | titlecase }},</b> welcome to home page.</span>
+        <span class="example-spacer"></span>
+        <div class="example-button-row">
+          <button mat-raised-button [routerLink]="['/welcome/add']">Add User</button>
+          <button mat-raised-button [routerLink]="['/welcome/cities']">Cities</button>
+        </div> 
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="table-container">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.name | titlecase }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.email }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="phone"> 
+            <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.phone }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="car">
+            <mat-header-cell *matHeaderCellDef>Car</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.car | titlecase }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row"><button mat-button (click)="onDelete(row._id)"><i class="far fa-trash-alt"></i></button></mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row"><a [routerLink]="['/edit', row._id]" mat-button><i class="far fa-edit"></i></a></mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </table>
+
+    <mat-spinner strokeWidth="5" [diameter]="50" *ngIf="isLoading"></mat-spinner> 
+</div>    

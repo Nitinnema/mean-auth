@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+    <span *ngIf="!auth.isLoggedin()" [routerLink]="['/']" routerLinkActive="router-link-active" >My App</span>
+    <span *ngIf="auth.isLoggedin()" [routerLink]="['/welcome']" routerLinkActive="router-link-active" >My App</span>
+    <span class="spacer"></span>
+    <span *ngIf="auth.isLoggedin()" (click)="onLogout()">Logout</span>
+</mat-toolbar>

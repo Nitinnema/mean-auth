@@ -1,0 +1,31 @@
+mat-toolbar{
+    padding: 0 50px;
+    margin: 10px auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+mat-spinner {
+  margin: 20px auto;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .table-container {
+    width: 70%;
+    margin: 20px auto 70px;
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
