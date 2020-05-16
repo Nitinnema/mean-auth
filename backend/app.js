@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const app = express();
 
-mongoose.connect("mongodb+srv://nitin:Asus@123@cluster0-ylur7.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useFindAndModify: false })
+mongoose.connect("mongodb+srv://nitin:<password>@cluster0-ylur7.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useFindAndModify: false })
 .then(() => {
   console.log("db connected");
 })
